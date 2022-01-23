@@ -1,0 +1,64 @@
+{% extends "base.html"%} {% block body_block %}
+<div class="statistics-body">
+<h1 id="statistics">
+    Statistics
+</h1>
+<div class="stat-container">
+    
+    <div id="stat-d-1">
+        <div class="stat-d-1-1">
+            <h2 class="stat-d-1-2">
+                <a href=" {% url 'app:customerList' %} " class="stat-link">
+                    total customers:
+                </a>
+            </h2>
+            <h3 class="stat-d-1-3">
+                {{customers}}
+            </h3>
+        </div>
+        <div class="stat-d-1-1">
+            <h2 class="stat-d-1-2">
+                <a href=" {% url 'app:orderList' %} " class="stat-link">total orders: </a>
+            </h2>
+            <h3 class="stat-d-1-3">
+                {{orders}}
+            </h3>
+        </div>
+        <div class="stat-d-1-1">
+            <h2 class="stat-d-1-2">
+                <a href="" class="stat-link">total amount: </a>
+            </h2>
+            <h3 class="stat-d-1-3">
+                {{sum.item_cost__sum}}
+            </h3>
+        </div>
+    </div>
+    <div id="stat-d-2">
+        <div class="stat-d-1-1">
+            <h2 class="stat-d-1-4">
+                <a href="{% url 'app:pendingList' %}" class="stat-link">total pending:</a> 
+            </h2>
+            <h3 class="stat-d-1-3">
+                {{pending}}
+            </h3>
+        </div>
+        <div class="stat-d-1-1">
+            <h2 class="stat-d-1-4">
+                <a href="{% url 'app:dispatchedList' %}" class="stat-link">total dispatched: </a>
+            </h2>
+            <h3 class="stat-d-1-3">
+                {{dispatched}}
+            </h3>
+        </div>
+        <div class="stat-d-1-1">
+            <h2 class="stat-d-1-4">
+                <a href="{% url 'app:deliveredList' %}" class="stat-link">total delivered:</a> 
+            </h2>
+            <h3 class="stat-d-1-3">
+                {{delivered}}
+            </h3>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

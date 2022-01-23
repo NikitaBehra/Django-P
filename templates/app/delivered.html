@@ -1,0 +1,34 @@
+{% extends "base.html"%} {% block body_block %}
+<div id="table-1">
+    {% if deliveredList %}
+    <table class="customer-list-table-1">
+        <tr class="list-tr">
+          <th class="list-th">ID</th>
+          <th class="list-th">CUSTOMER</th>
+          <th class="list-th">ITEM NAME</th>
+          <th class="list-th">ITEM COST</th>
+          <th class="list-th">ITEM QUANTITY</th>
+          <th class="list-th">ORDER PLACED AT</th>
+          <th class="list-th">ORDER STATUS</th>
+        </tr>
+        {% for order in deliveredList %}
+        <tr class="list-tr">
+          
+          <td class="list-td">{{ order.id}}</td>
+          <td class="list-td"><a href="{% url 'app:customerDetails' pk=order.customer.id %}">{{order.customer}}</a></td>
+          <td class="list-td"><a href="{% url 'app:orderDetails' pk=order.id %}">{{order.item_name}}</a></td>
+          <td class="list-td">{{order.item_cost}}</td>
+          <td class="list-td">{{order.item_quantity}}</td>
+          <td class="order-list-td">{{order.date}}</td>
+          <td class="list-td">{{order.order_status}}</td>
+          <td class="list-td"><a href="{% url 'app:updateOrder' pk=order.id %}"><button class="Edit-btn">Edit</button></a></td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+    <div>
+        <h1 id="no-orders">NO ORDERS!!</h1>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

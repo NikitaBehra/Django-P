@@ -1,11 +1,12 @@
 from pyexpat import model
 from django.shortcuts import render
-from django.views.generic import FormView, ListView, CreateView, DetailView, UpdateView
+from django.views.generic import FormView, ListView, CreateView, DetailView, UpdateView, TemplateView
 from app.models import Customer, OrderDetails
 from .forms import CustomerForm, OrderForm
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from app.filters import CustomFilter
+from app.filters import CustomFilter, OrderFilter
+from django.db.models import Sum
 # Create your views here.
 def Home(request):
     context = {}
@@ -62,11 +63,23 @@ class CustomerList(ListView):
 class OrderList(ListView):
     model = OrderDetails
     template_name = "app/order_list.html"      
-    context_object_name = 'order_list'  
+    context_object_name = 'order_list' 
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['filters'] = OrderFilter(self.request.GET, queryset=self.get_queryset())
+        return context 
 
 class CustomerDetailView(DetailView):
     model = Customer
     context_object_name = 'customer_detail'
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs) 
+        id = self.get_object().id
+        # print("primary key: ",name)
+        context['pending'] = OrderDetails.objects.filter(order_status="pending", customer = id).count()
+        context['dispatched'] = OrderDetails.objects.filter(order_status="dispatched", customer = id).count()
+        context['delivered'] = OrderDetails.objects.filter(order_status="delivered", customer = id).count()
+        return context   
 
 
 class UpdateCustomer(UpdateView):
@@ -81,3 +94,35 @@ class UpdateOrderDetails(UpdateView):
     model = OrderDetails
     fields = ["customer", "item_name", "item_cost", "item_quantity", "order_status"] 
   
+class StatisticsView(TemplateView):
+    template_name = "app/statistics.html"
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['customers'] = Customer.objects.count()
+        context['orders'] = OrderDetails.objects.count()
+        context['pending'] = OrderDetails.objects.filter(order_status="pending").count()
+        context['dispatched'] = OrderDetails.objects.filter(order_status="dispatched").count()
+        context['delivered'] = OrderDetails.objects.filter(order_status="delivered").count()
+        context['sum'] = OrderDetails.objects.aggregate(Sum('item_cost'))
+        return context
+
+class PendingListView(TemplateView):
+    template_name = "app/pendings.html" 
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['pendingList'] = OrderDetails.objects.filter(order_status="pending")
+        return context
+
+class DeliveredListView(TemplateView):
+    template_name = "app/delivered.html" 
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['deliveredList'] = OrderDetails.objects.filter(order_status="delivered")
+        return context
+
+class DispatchedListView(TemplateView):
+    template_name = "app/dispatched.html" 
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['dispatchedList'] = OrderDetails.objects.filter(order_status="dispatched")
+        return context

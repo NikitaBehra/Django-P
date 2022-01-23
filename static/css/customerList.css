@@ -2,20 +2,33 @@
     background-color: none;
     margin-top: 40px;
     padding: 10px;
+    width:90%;
+    margin: auto;
   }
  .customer-list-table-1{
       border:solid 1px black;
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width:90%;
+    margin: auto;
+    margin-top:40px;
   }
   .customer-list-serachtable-1
   {
     border:solid 1px black;
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width:100%;
     margin-bottom:30px;
+  }
+  .order-list-td
+  {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 18px;
+    text-transform: capitalize;
+    height:40px;
   }
   .list-td {
     border: 1px solid black;
@@ -50,7 +63,8 @@
     border:solid 1px black;
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width:100%;
+    width:90%;
+    margin: auto;
   }
   
   .home-td{
@@ -106,7 +120,7 @@ font-size: 30px;
   {
     margin-top:-39px;
     margin-bottom:30px;
-    margin-left: 1px;
+    margin-left: 88px;
   }
   .btn-all
   {
@@ -132,7 +146,8 @@ font-size: 30px;
   #search-box
   {
     margin-top:40px;
-    margin-left: 12px;
+    margin-left: 100px;
+    margin-bottom: 20px;
     width: 42%;
     display:flex;
   }

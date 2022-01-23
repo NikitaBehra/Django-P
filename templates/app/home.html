@@ -44,19 +44,21 @@
                     <a href=""><th class="home-th">ITEM NAME</th></a>
                     <th class="home-th">ITEM COST</th>
                     <th class="home-th">ITEM QUANTITY</th>
+                    <th class="list-th">ORDER PLACED AT</th>
                     <th class="home-th">ORDER STATUS</th>
                     <th class="home-th">EDIT</th>
                   </tr>
                   {% for order in orders %}
                   <tr class="home-tr">
                     
-                    <td class="home-td">{{ order.id}}</td>
-                    <td class="home-td"><a href="{% url 'app:home' %}">{{order.customer}}</a></td>
-                    <td class="home-td"><a href="{% url 'app:orderDetails' pk=order.id %}">{{order.item_name}}</a></td>
-                    <td class="home-td">{{order.item_cost}}</td>
-                    <td class="home-td">{{order.item_quantity}}</td>
-                    <td class="home-td">{{order.order_status}}</td>
-                    <td class="home-td"><a href="{% url 'app:updateOrder' pk=order.id %}"><button class="Edit-btn">Edit</button></a></td>
+                    <td class="order-list-td">{{ order.id}}</td>
+                    <td class="order-list-td"><a href="{% url 'app:customerDetails' pk=order.customer.id %}">{{order.customer}}</a></td>
+                    <td class="order-list-td"><a href="{% url 'app:orderDetails' pk=order.id %}">{{order.item_name}}</a></td>
+                    <td class="order-list-td">{{order.item_cost}}</td>
+                    <td class="order-list-td">{{order.item_quantity}}</td>
+                    <td class="order-list-td">{{order.date}}</td>
+                    <td class="order-list-td">{{order.order_status}}</td>
+                    <td class="order-list-td"><a href="{% url 'app:updateOrder' pk=order.id %}"><button class="Edit-btn">Edit</button></a></td>
                   </tr>
                   {% endfor %}
               </table>

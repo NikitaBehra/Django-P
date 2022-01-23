@@ -1,0 +1,76 @@
+.statistics-body
+{
+    width:80%;
+    margin: auto;
+}
+#statistics
+{
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top:30px;
+    margin-bottom:80px;
+    color: #2b2e2e;
+}
+.stat-container
+{
+    /* background-color: palevioletred; */
+    display: grid;
+    width: 98%;
+    grid-template-rows: 1fr 1fr ;
+}
+#stat-d-1
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5em;
+    text-align: center;
+}
+#stat-d-2
+{
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10em;
+    margin-top:60px;
+    text-align: center;
+}
+.stat-d-1-1
+{
+    background-color:white;
+    box-shadow: 0 2px 4px 0 #D7DBDD, 0 3px 12px 0 #D7DBDD;
+    height:150px;
+    border: solid 1px #717D7E;
+}
+.stat-d-1-2
+{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing:2px;
+    color: #585d5e;
+    margin-top: 15px;
+}
+.stat-d-1-4
+{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing:2px;
+    color: #585d5e;
+    margin-top: 15px;
+    font-size: 30px;
+}
+.stat-d-1-3
+{
+    color: #21618C;
+    font-size: 60px;
+}
+.stat-link
+{
+    text-decoration: none;
+    color: #585d5e;
+}
+.stat-link:hover
+{
+    text-decoration: underline;
+    color: #21618C;
+}

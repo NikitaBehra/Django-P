@@ -22,7 +22,12 @@ class OrderDetails(models.Model):
     item_name = models.CharField(max_length=200)
     item_cost = models.IntegerField()
     item_quantity = models.IntegerField()
-    order_status = models.CharField(max_length=200, default="pending")
+    order_choices = (
+    ('pending','pending'),
+    ('dispatched', 'dispatched'),
+    ('delivered','delivered'),
+        )
+    order_status = models.CharField(max_length=30, choices=order_choices, default='pending')    
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

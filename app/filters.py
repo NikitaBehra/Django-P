@@ -9,3 +9,8 @@ class CustomFilter(django_filters.FilterSet):
             'name' : ["icontains"],
             'city' : ["icontains"],
         }
+
+class OrderFilter(django_filters.FilterSet):
+    class Meta:
+        model = models.OrderDetails
+        fields = ['item_name', 'order_status']

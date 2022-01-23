@@ -1,22 +1,46 @@
 {% extends "base.html"%} {% block body_block %}
-<div>
-  <div id="table-1">
-    <table class="customer-list-table-1">
-      <tr class="list-tr">
-        <th class="list-th">ID</th>
-        <th class="list-th">ITEM QUANTITY</th>
-        <th class="list-th">STATUS</th>
-        <th class="list-th">EDIT</th>
-      </tr>
-      <tr class="list-tr">
-        <td class="list-td">{{order.id}}</td>
-        <td class="list-td">{{order.customer}}</td>
-        <td class="list-td">{{order.item_cost}}</td>
-        <td class="list-td">{{order.item_quantity}}</td>
-        <td class="list-td">{{order.order_status}}</td>
-        <td class="list-td"><button class="Edit-btn">Edit</button></td>
-      </tr>
-    </table>
+<div class="order-details-body">
+  <div id="order-details-cont">
+
+    <div id="customer-details-ctn">
+      <div class="customer-details-ctn-1">
+        <h2 class="customer-details-title">Customer Name</h2>
+        <a href="{% url 'app:customerDetails' pk=order.customer.id %}"><h3 class="customer-details-desp-link">{{order.customer}}</h3></a>
+      </div>
+      <div class="customer-details-ctn-1">
+        <h2 class="customer-details-title">Customer Address</h2>
+        <h3 class="customer-details-desp">{{order.customer.address}}, <br>{{order.customer.city}} <br>{{order.customer.state}}</h3>
+      </div>
+    </div>
+    <div id="order-details-ctn">
+      <div class="order-details-ctn-1">
+        <h2 class="customer-details-title">Order placed at</h2>
+        <h3 class="customer-details-desp">{{order.date}}</h3>
+      </div>
+      <div class="order-details-ctn-1">
+        <h2 class="customer-details-title">Order ID</h2>
+        <h3 class="customer-details-desp">{{order.id}}</h3>
+      </div>
+      <div class="order-details-ctn-1">
+        <h2 class="customer-details-title">Order status</h2>
+        <h3 class="customer-details-desp">{{order.order_status}}</h3>
+      </div>
+    </div>
+    <div id="order-item-ctn">
+      <div class="order-details-ctn-1">
+        <h2 class="customer-details-title">Item Name</h2>
+        <h3 class="customer-details-desp">{{order.item_name}}</h3>
+      </div>
+      <div class="order-details-ctn-1">
+        <h2 class="customer-details-title">Item Cost</h2>
+        <h3 class="customer-details-desp">{{order.item_cost}}</h3>
+      </div>
+      <div class="order-details-ctn-1">
+        <h2 class="customer-details-title">Item Quantity</h2>
+        <h3 class="customer-details-desp">{{order.item_quantity}}</h3>
+      </div>
+    </div>
+    
   </div>
 </div>
 {% endblock %}
