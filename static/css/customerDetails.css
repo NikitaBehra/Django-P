@@ -1,0 +1,85 @@
+.detail-cont
+{
+    margin: auto;
+    display: grid;
+    width: 98%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-column-gap: 13em;
+}
+#contact
+{
+    /* background-color: cadetblue; */
+    border-radius: 50px;
+    border:solid 1px #5F6A6A;
+}
+#address
+{
+    /* background-color:cornflowerblue; */
+    border-radius: 50px;
+    border:solid 1px #5F6A6A;
+}
+.details-head
+{
+    margin-top:40px;
+    margin-bottom:18px;
+    font-size:25px;
+    text-align: center;
+    text-transform: uppercase;
+color:  #17202A;
+}
+#customer-name
+{
+    font-size:44px;
+    text-transform: capitalize;
+    letter-spacing:2px;
+    color: #154360;
+    text-align: center;
+    margin-top:18px;
+}
+#customer-contact
+{
+    font-size:26px;
+    text-transform: capitalize;
+    letter-spacing:1px;
+    color: #424949 ;
+    text-align: center;
+}
+#customer-email
+{
+    font-size:22px;
+    letter-spacing:1px;
+    color: #707B7C ;
+    text-align: center;
+}
+#customer-add
+{
+    font-size:26px;
+    text-transform: capitalize;
+    letter-spacing:2px;
+    color: #154360;
+    text-align: center;
+    margin-top:28px;
+}
+#customer-city
+{
+    font-size:26px;
+    text-transform: capitalize;
+    letter-spacing:1px;
+    color: #424949 ;
+    text-align: center;
+}
+#customer-state
+{
+    font-size:26px;
+    letter-spacing:1px;
+    color: #707B7C ;
+    text-align: center;
+}
+#no-orders
+{
+    text-align: center;
+    margin-top: 80px;
+    letter-spacing:2px;
+    font-size:50px;
+}

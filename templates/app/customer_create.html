@@ -1,0 +1,33 @@
+{% extends "base.html"%} {% block body_block %}
+<div>
+<form method="post" class="cont-1">
+    {% csrf_token %}
+    <div>
+        <h5 class="c-input-label">{{form.name.label}}</h5> <br/>
+    {{form.name}}
+    </div>
+    <div>
+        <h5 class="c-input-label">{{form.contact.label}}</h5><br/>
+    {{form.contact}}
+    </div>
+    <div>
+        <h5 class="c-input-label">{{form.email.label}}</h5><br/>
+    {{form.email}}
+    </div>
+    <div>
+        <h5 class="c-input-label">{{form.address.label}}</h5><br/>
+    {{form.address}}
+    </div>
+    <div>
+        <h5 class="c-input-label">{{form.city.label}}</h5><br/>
+    {{form.city}}
+    </div>
+    <div>
+        <h5 class="c-input-label">{{form.state.label}}</h5><br/>
+    {{form.state}}
+    </div>
+    <br/>
+    <input type="submit" value="Create" class="btn-1">
+</form>
+</div>
+{% endblock %}
