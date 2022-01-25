@@ -1,5 +1,4 @@
 from django.conf.urls import url
-
 from app import views
 from app.views import (CreateCustomer, 
                         CreateOrder, 
@@ -13,6 +12,7 @@ from app.views import (CreateCustomer,
                         PendingListView,
                         DeliveredListView,
                         DispatchedListView,
+                        ItemList,
                         )
 app_name = "app"
 urlpatterns = [
@@ -30,4 +30,5 @@ urlpatterns = [
     url(r'^pendingList/', PendingListView.as_view(), name='pendingList'),
     url(r'^deliveredList/', DeliveredListView.as_view(), name='deliveredList'),
     url(r'^dispatchedList/', DispatchedListView.as_view(), name='dispatchedList'),
+    url(r'^itemList/(?P<slug>[-\w\d]+)/$', ItemList.as_view(), name='itemList'),
 ]

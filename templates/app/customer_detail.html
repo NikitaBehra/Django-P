@@ -38,7 +38,7 @@
         <th class="list-th">ITEM QUANTITY</th>
         <th class="list-th">ORDER PLACED AT</th>
         <th class="list-th">ORDER STATUS</th>
-        <th class="list-th">EDIT</th>
+        <th class="home-th">EDIT</th>
       </tr>
       {% for order in customer_detail.customer.all%}
       <tr class="list-tr">
@@ -48,7 +48,7 @@
         <td class="order-list-td">{{order.item_quantity}}</td>
         <td class="order-list-td">{{order.date}}</td>
         <td class="order-list-td">{{order.order_status}}</td>
-        <td class="order-list-td"><a href="{% url 'app:updateOrder' pk=order.id%}"><button class="Edit-btn">Edit</button></a></td>
+        <td class="order-list-td"><a href="{% url 'app:updateOrder' pk=order.id %}"><button class="Edit-btn">Edit</button></a></td>
       </tr>
       {% endfor %}
     </table>

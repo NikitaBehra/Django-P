@@ -19,17 +19,20 @@
           <th class="list-th">ITEM QUANTITY</th>
           <th class="list-th">ORDER PLACED AT</th>
           <th class="list-th">ORDER STATUS</th>
+          <th class="list-th">MORE DETAILS</th>
+          <th class="list-th">EDIT</th>
         </tr>
         {% for order in filters.qs %}
         <tr class="list-tr">
           
           <td class="order-list-td">{{ order.id}}</td>
           <td class="order-list-td"><a href="{% url 'app:customerDetails' pk=order.customer.id %}">{{order.customer}}</a></td>
-          <td class="order-list-td"><a href="{% url 'app:orderDetails' pk=order.id %}">{{order.item_name}}</a></td>
+          <td class="order-list-td"><a href="{% url 'app:itemList' slug=order.item_name %}">{{order.item_name}}</a></td>
           <td class="order-list-td">{{order.item_cost}}</td>
           <td class="order-list-td">{{order.item_quantity}}</td>
           <td class="order-list-td">{{order.date}}</td>
           <td class="order-list-td">{{order.order_status}}</td>
+          <td class="order-list-td"><a href="{% url 'app:orderDetails' pk=order.id %}"><button class="Edit-btn">Click here</button></a></td>
           <td class="order-list-td"><a href="{% url 'app:updateOrder' pk=order.id %}"><button class="Edit-btn">Edit</button></a></td>
         </tr>
         {% endfor %}

@@ -69,6 +69,16 @@ class OrderList(ListView):
         context['filters'] = OrderFilter(self.request.GET, queryset=self.get_queryset())
         return context 
 
+class ItemList(TemplateView):
+    model = OrderDetails
+    template_name = "app/order_item_list.html"    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        item_name = self.kwargs["slug"]
+        context["item_name"] = item_name
+        context['list'] = OrderDetails.objects.filter(item_name= item_name)
+        return context 
+
 class CustomerDetailView(DetailView):
     model = Customer
     context_object_name = 'customer_detail'

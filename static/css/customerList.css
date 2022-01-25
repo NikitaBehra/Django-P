@@ -20,6 +20,7 @@
     border-collapse: collapse;
     width:100%;
     margin-bottom:30px;
+    text-align: center;
   }
   .order-list-td
   {
@@ -33,7 +34,7 @@
   .list-td {
     border: 1px solid black;
     border-collapse: collapse;
-    text-align: left;
+    text-align: center;
     font-size: 16px;
     text-transform: capitalize;
     height:40px;
@@ -70,7 +71,7 @@
   .home-td{
     border: 1px solid black;
     border-collapse: collapse;
-    text-align: left;
+    text-align: center;
     font-size: 16px;
     text-transform: capitalize;
     height:40px;
@@ -79,7 +80,7 @@
   .home-td-link
   {
     border-collapse: collapse;
-    text-align: left;
+    text-align: center;
     font-size: 18px;
     text-transform: capitalize;
     height:40px;
@@ -194,4 +195,22 @@ font-size: 30px;
     color:#717D7E ;
     letter-spacing: 2px;
     text-transform: capitalize;
+  }
+  #item-name-ctn
+  {
+    margin: auto;
+    margin-top: 20px;
+  }
+  #item-name-title
+  {
+    color:#717D7E ;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  #item-name-value
+  {
+    color:#154360;
+    text-transform: capitalize;
+    letter-spacing:4px;
+    text-align: center;
   }

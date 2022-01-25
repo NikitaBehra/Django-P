@@ -18,7 +18,7 @@ class Customer(models.Model):
         return reverse('app:customerList') 
 
 class OrderDetails(models.Model):
-    customer = models.ForeignKey(Customer, related_name="customer",on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, related_name="customer",on_delete=models.SET_DEFAULT, default="NA")
     item_name = models.CharField(max_length=200)
     item_cost = models.IntegerField()
     item_quantity = models.IntegerField()
