@@ -23,9 +23,9 @@ class OrderForm(forms.ModelForm):
         model = OrderDetails
         fields = "__all__"
         widgets = {
-            'customer': forms.TextInput(attrs={'class': 'order-input-field'}),
+            'customer': forms.Select(attrs={'class': 'order-input-field'}),
             'item_name' :forms.TextInput(attrs={'class': 'order-input-field'}),
             'item_cost':forms.TextInput(attrs={'class': 'order-input-field'}),
             'item_quantity':forms.TextInput(attrs={'class': 'order-input-field'}),
-            'order_status': forms.TextInput(attrs={'class': 'order-input-field'})
+            'order_status': forms.Select(attrs={'class': 'order-input-field'})
         }        

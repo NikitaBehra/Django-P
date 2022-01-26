@@ -27,7 +27,7 @@ class CreateCustomer(FormView):
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save() 
-            return redirect('app:customerList')
+            return redirect('app:home')
 
         return render(request,self.template_name, {'form': self.form_class})    
 
@@ -38,13 +38,11 @@ class CreateOrder(FormView):
     success_url=reverse_lazy('orderList')
     template_name = "app/order_create.html"  
  
-    def post(self, request, *args, **kwargs):
-        print("post")
-        self.form_class = OrderForm(request.POST)
-        if self.form_class.is_valid():
-            self.form_class.save() 
-            print("form is saved!")
-            return redirect('app:orderList')
+    def post(self, request):
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save() 
+            return redirect('app:home')
 
         return render(request,self.template_name, {'form': self.form_class})      
 
@@ -93,16 +91,16 @@ class CustomerDetailView(DetailView):
 
 
 class UpdateCustomer(UpdateView):
+    form_class = CustomerForm
     model = Customer
-    fields = ["name", "contact", "email", "address", "city", "state"]
 
 class OrderDetailsView(DetailView):
     model = OrderDetails
     context_object_name = 'order'     
 
 class UpdateOrderDetails(UpdateView):
+    form_class = OrderForm
     model = OrderDetails
-    fields = ["customer", "item_name", "item_cost", "item_quantity", "order_status"] 
   
 class StatisticsView(TemplateView):
     template_name = "app/statistics.html"
